@@ -81,6 +81,7 @@ const CategoriesList = ({ categories }) => {
           <tr>
             <th>Id</th>
             <th>Type</th>
+            <th>Image url</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -89,6 +90,7 @@ const CategoriesList = ({ categories }) => {
             <tr key={category.id}>
               <td>{truncate(category.id)}</td>
               <td>{truncate(category.type)}</td>
+              <td>{truncate(category.image_url)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

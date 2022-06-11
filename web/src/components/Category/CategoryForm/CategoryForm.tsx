@@ -16,6 +16,9 @@ const CategoryForm = (props) => {
     
     
   
+    
+    
+  
     props.onSave(data, props?.category?.id)
   }
 
@@ -46,6 +49,24 @@ const CategoryForm = (props) => {
         
 
         <FieldError name="type" className="rw-field-error" />
+
+        <Label
+          name="image_url"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Image url
+        </Label>
+        
+          <TextField
+            name="image_url"
+            defaultValue={props.category?.image_url}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+          />
+        
+
+        <FieldError name="image_url" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit

@@ -76,6 +76,9 @@ const Category = ({ category }) => {
             </tr><tr>
               <th>Type</th>
               <td>{category.type}</td>
+            </tr><tr>
+              <th>Image url</th>
+              <td>{category.image_url}</td>
             </tr>
           </tbody>
         </table>

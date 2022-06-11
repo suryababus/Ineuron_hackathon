@@ -8,6 +8,7 @@ export const QUERY = gql`
     category: category(id: $id) {
       id
       type
+      image_url
     }
   }
 `

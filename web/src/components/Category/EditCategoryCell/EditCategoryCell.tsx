@@ -12,6 +12,7 @@ export const QUERY = gql`
     category: category(id: $id) {
       id
       type
+      image_url
     }
   }
 `
@@ -20,6 +21,7 @@ const UPDATE_CATEGORY_MUTATION = gql`
     updateCategory(id: $id, input: $input) {
       id
       type
+      image_url
     }
   }
 `

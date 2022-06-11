@@ -17,6 +17,12 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={CategoriesLayout}>
+        <Route path="/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
+        <Route path="/categories/{id:Int}/edit" page={CategoryEditCategoryPage} name="editCategory" />
+        <Route path="/categories/{id:Int}" page={CategoryCategoryPage} name="category" />
+        <Route path="/categories" page={CategoryCategoriesPage} name="categories" />
+      </Set>
+      <Set wrap={CategoriesLayout}>
         <Route path="/admin/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
         <Route path="/admin/categories/{id:Int}/edit" page={CategoryEditCategoryPage} name="editCategory" />
         <Route path="/admin/categories/{id:Int}" page={CategoryCategoryPage} name="category" />

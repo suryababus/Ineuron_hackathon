@@ -2,6 +2,7 @@ export const schema = gql`
   type Category {
     id: Int!
     type: String
+    image_url: String
   }
 
   type Query {
@@ -11,10 +12,12 @@ export const schema = gql`
 
   input CreateCategoryInput {
     type: String
+    image_url: String
   }
 
   input UpdateCategoryInput {
     type: String
+    image_url: String
   }
 
   type Mutation {

@@ -10,6 +10,7 @@ export const QUERY = gql`
     categories {
       id
       type
+      image_url
     }
   }
 `
