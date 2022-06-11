@@ -29,7 +29,7 @@ export const CartProvider = ({ children }: Props) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   useEffect(() => {
-    const cartItemsLocal = JSON.parse(localStorage.getItem('cart_items') || '{}')
+    const cartItemsLocal = JSON.parse(localStorage.getItem('cart_items') || '[]')
     setCartItems(cartItemsLocal)
   }, [])
   useEffect(() => {

@@ -3,6 +3,7 @@ import { CellSuccessProps, CellFailureProps, useQuery } from '@redwoodjs/web'
 import { Container } from '@mui/system'
 import { Typography } from '@mui/material'
 import { useState } from 'react'
+import { navigate } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query FindCategories {
@@ -49,6 +50,7 @@ function CategoryCard(item): JSX.Element {
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={() => navigate(`/${item.id}/menu`)}
     >
       <img src={item.image_url} style={{ width: '300px' }} />
       <Typography

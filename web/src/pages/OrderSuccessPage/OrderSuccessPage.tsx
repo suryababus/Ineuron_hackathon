@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 
 const OrderSuccessPage = () => {
   useEffect(() => {
-    localStorage.setItem('cart_items', '{}')
+    localStorage.setItem('cart_items', '[]')
   }, [])
   return (
     <>
@@ -17,7 +17,7 @@ const OrderSuccessPage = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh'
+          height: '100vh',
         }}
       >
         <Typography variant="h4">OrderSuccess</Typography>

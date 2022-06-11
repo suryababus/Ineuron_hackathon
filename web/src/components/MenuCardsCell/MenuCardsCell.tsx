@@ -5,6 +5,7 @@ import MenuCard from './MenuCard'
 import { useContext } from 'react'
 import { CartContext } from 'src/state/cartState'
 import { navigate } from '@redwoodjs/router'
+import Loading from '../Loading/Loading'
 
 export const QUERY = gql`
   query FindMenus {
@@ -20,7 +21,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+// export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
 
@@ -64,6 +65,7 @@ export const Success = ({ menus }: CellSuccessProps<FindMenus>) => {
 
 export const MenuCardsCell = () => {
   const { error, loading, data } = useQuery(QUERY)
+  return <Loading />
 
   if (error) {
     if (Failure) {

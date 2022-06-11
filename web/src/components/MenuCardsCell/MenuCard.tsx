@@ -34,9 +34,14 @@ interface Props {
 }
 export default function MenuCard({ menu }: Props) {
   const cart = React.useContext(CartContext)
-  const addedCount = cart.cartItems.filter(
-    (item) => item.menu.id === menu.id
-  )[0]?.count || 0
+  let addedCount = 0
+  try{
+    addedCount = cart?.cartItems?.filter(
+      (item) => item.menu.id === menu.id
+    )[0]?.count || 0
+  } catch(e) {
+
+  }
 
   return (
     <Card sx={{ width: 345, margin: '8px' }}>
