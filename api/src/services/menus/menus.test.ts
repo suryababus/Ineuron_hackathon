@@ -23,14 +23,14 @@ describe('menus', () => {
   scenario('creates a menu', async (scenario: StandardScenario) => {
     const result = await createMenu({
       input: {
-        category_id: 9559926,
-        cuisine_id: 7128153,
+        category_id: 4087425,
+        cuisine_id: 6774078,
         restaurant_id: scenario.menu.two.restaurant_id,
       },
     })
 
-    expect(result.category_id).toEqual(9559926)
-    expect(result.cuisine_id).toEqual(7128153)
+    expect(result.category_id).toEqual(4087425)
+    expect(result.cuisine_id).toEqual(6774078)
     expect(result.restaurant_id).toEqual(scenario.menu.two.restaurant_id)
   })
 
@@ -38,10 +38,10 @@ describe('menus', () => {
     const original = await menu({ id: scenario.menu.one.id })
     const result = await updateMenu({
       id: original.id,
-      input: { category_id: 1655607 },
+      input: { category_id: 8789181 },
     })
 
-    expect(result.category_id).toEqual(1655607)
+    expect(result.category_id).toEqual(8789181)
   })
 
   scenario('deletes a menu', async (scenario: StandardScenario) => {

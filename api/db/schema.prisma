@@ -52,6 +52,7 @@ model Menu {
   cuisine_id    Int
   restaurant_id Int
   Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
+  image_url     String?
 }
 
 model Order {
