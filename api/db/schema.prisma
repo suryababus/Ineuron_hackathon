@@ -9,21 +9,19 @@ generator client {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String?
+  id      Int     @id @default(autoincrement())
+  name    String?
   phoneNo String
-  Items Items[]
 }
 
 model Restaurant {
-  id             Int              @id @default(autoincrement())
-  name           String?
-  Items          Items[]
-  RestaurantMenu RestaurantMenu[]
+  id   Int     @id @default(autoincrement())
+  name String?
+  menu Menu[]
 }
 
 model RestaurantTable {
-  id            Int @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   restaurant_id Int
   table_no      String
   available     Boolean
@@ -40,12 +38,12 @@ model Category {
 }
 
 model Menu {
-  id             Int              @id @default(autoincrement())
-  item_name      String?
-  category_id    Int
-  cuisine_id     Int
-  Items          Items[]
-  RestaurantMenu RestaurantMenu[]
+  id            Int        @id @default(autoincrement())
+  item_name     String?
+  category_id   Int
+  cuisine_id    Int
+  restaurant_id Int
+  Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
 }
 
 model Order {
@@ -53,30 +51,4 @@ model Order {
   status        String?
   user_id       Int
   restaurant_id Int
-}
-
-model Cart {
-  id     Int     @id @default(autoincrement())
-  status String?
-  Items  Items[]
-}
-
-model Items {
-  id            Int        @id @default(autoincrement())
-  item_id       Int
-  restaurant_id Int
-  user_id       Int
-  cart_id       Int
-  Menu          Menu       @relation(fields: [item_id], references: [id])
-  Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
-  User          User       @relation(fields: [user_id], references: [id])
-  Cart          Cart       @relation(fields: [cart_id], references: [id])
-}
-
-model RestaurantMenu {
-  id            Int        @id @default(autoincrement())
-  menu_id       Int
-  restaurant_id Int
-  Menu          Menu       @relation(fields: [menu_id], references: [id])
-  Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
 }
