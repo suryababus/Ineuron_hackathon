@@ -8,14 +8,18 @@ import Routes from 'src/Routes'
 
 import './scaffold.css'
 import './index.css'
+import { CartProvider } from './state/cartState'
+
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <AuthProvider type="dbAuth">
-        <RedwoodApolloProvider>
-          <Routes />
-        </RedwoodApolloProvider>
+        <CartProvider>
+          <RedwoodApolloProvider>
+            <Routes />
+          </RedwoodApolloProvider>
+        </CartProvider>
       </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
