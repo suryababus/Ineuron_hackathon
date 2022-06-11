@@ -1,8 +1,10 @@
 import type { FindMenus } from 'types/graphql'
 import { CellSuccessProps, CellFailureProps, useQuery } from '@redwoodjs/web'
-import { Container } from '@mui/material'
+import { Button, Container } from '@mui/material'
 import MenuCard from './MenuCard'
-
+import { useContext } from 'react'
+import { CartContext } from 'src/state/cartState'
+import { navigate } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query FindMenus {
@@ -12,7 +14,7 @@ export const QUERY = gql`
       category_id
       cuisine_id
       restaurant_id
-      image_url,
+      image_url
       price
     }
   }
@@ -27,15 +29,38 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ menus }: CellSuccessProps<FindMenus>) => {
+  const cart = useContext(CartContext)
+
   return (
-    <Container maxWidth="md">
+    <Container
+      maxWidth="md"
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+      }}
+    >
       {menus.map((item) => {
-        return <MenuCard menu={item}/>
+        return <MenuCard menu={item} />
       })}
+
+      <Button
+        fullWidth
+        variant="contained"
+        style={{
+          margin: 'auto',
+          maxWidth: 350,
+          position: 'fixed',
+          bottom: '16px',
+          left: 0,
+          right: 0,
+        }}
+        onClick={() => navigate('/order-summary')}
+      >
+        Checkout ({cart.cartItems.length})
+      </Button>
     </Container>
   )
 }
-
 
 export const MenuCardsCell = () => {
   const { error, loading, data } = useQuery(QUERY)
