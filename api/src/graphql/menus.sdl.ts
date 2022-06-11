@@ -7,6 +7,7 @@ export const schema = gql`
     restaurant_id: Int!
     Restaurant: Restaurant!
     image_url: String
+    price: Float!
   }
 
   type Query {
@@ -20,6 +21,7 @@ export const schema = gql`
     cuisine_id: Int!
     restaurant_id: Int!
     image_url: String
+    price: Float!
   }
 
   input UpdateMenuInput {
@@ -28,6 +30,7 @@ export const schema = gql`
     cuisine_id: Int
     restaurant_id: Int
     image_url: String
+    price: Float
   }
 
   type Mutation {

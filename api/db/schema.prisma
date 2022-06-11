@@ -53,6 +53,7 @@ model Menu {
   restaurant_id Int
   Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
   image_url     String?
+  price         Float
 }
 
 model Order {

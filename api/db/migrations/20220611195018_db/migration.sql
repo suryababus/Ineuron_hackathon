@@ -56,6 +56,7 @@ CREATE TABLE "Menu" (
     "cuisine_id" INTEGER NOT NULL,
     "restaurant_id" INTEGER NOT NULL,
     "image_url" TEXT,
+    "price" DOUBLE PRECISION NOT NULL,
 
     CONSTRAINT "Menu_pkey" PRIMARY KEY ("id")
 );
