@@ -65,7 +65,6 @@ export const Success = ({ menus }: CellSuccessProps<FindMenus>) => {
 
 export const MenuCardsCell = () => {
   const { error, loading, data } = useQuery(QUERY)
-  return <Loading />
 
   if (error) {
     if (Failure) {
