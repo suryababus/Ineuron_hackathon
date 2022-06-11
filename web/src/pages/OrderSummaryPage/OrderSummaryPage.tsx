@@ -1,6 +1,6 @@
 import { Button, CardActions, IconButton, Typography } from '@mui/material'
 import { Container } from '@mui/system'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { useContext } from 'react'
 import { CartContext, CartItem } from 'src/state/cartState'
@@ -48,6 +48,7 @@ const OrderSummaryPage = () => {
             maxWidth: 350,
             display: 'flex'
           }}
+          onClick={() => navigate('/order-success')}
         >
           Place Order
         </Button>
