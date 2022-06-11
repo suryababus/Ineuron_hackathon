@@ -84,6 +84,8 @@ const MenusList = ({ menus }) => {
             <th>Category id</th>
             <th>Cuisine id</th>
             <th>Restaurant id</th>
+            <th>Image url</th>
+            <th>Price</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -95,6 +97,8 @@ const MenusList = ({ menus }) => {
               <td>{truncate(menu.category_id)}</td>
               <td>{truncate(menu.cuisine_id)}</td>
               <td>{truncate(menu.restaurant_id)}</td>
+              <td>{truncate(menu.image_url)}</td>
+              <td>{truncate(menu.price)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

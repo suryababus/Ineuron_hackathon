@@ -23,27 +23,27 @@ describe('menus', () => {
   scenario('creates a menu', async (scenario: StandardScenario) => {
     const result = await createMenu({
       input: {
-        category_id: 7724508,
-        cuisine_id: 6618760,
+        category_id: 7538668,
+        cuisine_id: 36400,
         restaurant_id: scenario.menu.two.restaurant_id,
-        price: 5574404.321828057,
+        price: 4682222.076254163,
       },
     })
 
-    expect(result.category_id).toEqual(7724508)
-    expect(result.cuisine_id).toEqual(6618760)
+    expect(result.category_id).toEqual(7538668)
+    expect(result.cuisine_id).toEqual(36400)
     expect(result.restaurant_id).toEqual(scenario.menu.two.restaurant_id)
-    expect(result.price).toEqual(5574404.321828057)
+    expect(result.price).toEqual(4682222.076254163)
   })
 
   scenario('updates a menu', async (scenario: StandardScenario) => {
     const original = await menu({ id: scenario.menu.one.id })
     const result = await updateMenu({
       id: original.id,
-      input: { category_id: 2255259 },
+      input: { category_id: 4229502 },
     })
 
-    expect(result.category_id).toEqual(2255259)
+    expect(result.category_id).toEqual(4229502)
   })
 
   scenario('deletes a menu', async (scenario: StandardScenario) => {

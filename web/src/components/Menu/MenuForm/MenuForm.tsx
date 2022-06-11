@@ -26,6 +26,12 @@ const MenuForm = (props) => {
     
     
   
+    
+    
+  
+    
+    
+  
     props.onSave(data, props?.menu?.id)
   }
 
@@ -113,6 +119,43 @@ const MenuForm = (props) => {
         
 
         <FieldError name="restaurant_id" className="rw-field-error" />
+
+        <Label
+          name="image_url"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Image url
+        </Label>
+        
+          <TextField
+            name="image_url"
+            defaultValue={props.menu?.image_url}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+          />
+        
+
+        <FieldError name="image_url" className="rw-field-error" />
+
+        <Label
+          name="price"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Price
+        </Label>
+        
+          <TextField
+            name="price"
+            defaultValue={props.menu?.price}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{ valueAsNumber: true, required: true }}
+          />
+        
+
+        <FieldError name="price" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit

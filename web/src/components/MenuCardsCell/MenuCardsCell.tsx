@@ -12,7 +12,8 @@ export const QUERY = gql`
       category_id
       cuisine_id
       restaurant_id
-      image_url
+      image_url,
+      price
     }
   }
 `

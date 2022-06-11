@@ -15,6 +15,8 @@ export const QUERY = gql`
       category_id
       cuisine_id
       restaurant_id
+      image_url
+      price
     }
   }
 `
@@ -26,6 +28,8 @@ const UPDATE_MENU_MUTATION = gql`
       category_id
       cuisine_id
       restaurant_id
+      image_url
+      price
     }
   }
 `

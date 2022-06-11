@@ -26,6 +26,7 @@ interface Menu {
   cuisine_id: number
   restaurant_id: number
   image_url?: string
+  price: number
 }
 
 interface Props {
@@ -38,7 +39,7 @@ export default function MenuCard({ menu }: Props) {
   )[0]?.count || 0
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: 8 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

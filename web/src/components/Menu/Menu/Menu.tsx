@@ -85,6 +85,12 @@ const Menu = ({ menu }) => {
             </tr><tr>
               <th>Restaurant id</th>
               <td>{menu.restaurant_id}</td>
+            </tr><tr>
+              <th>Image url</th>
+              <td>{menu.image_url}</td>
+            </tr><tr>
+              <th>Price</th>
+              <td>{menu.price}</td>
             </tr>
           </tbody>
         </table>
