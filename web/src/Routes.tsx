@@ -16,16 +16,16 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={MenusLayout}>
-        <Route path="/menus/new" page={MenuNewMenuPage} name="newMenu" />
-        <Route path="/menus/{id:Int}/edit" page={MenuEditMenuPage} name="editMenu" />
-        <Route path="/menus/{id:Int}" page={MenuMenuPage} name="menu" />
-        <Route path="/menus" page={MenuMenusPage} name="menus" />
+        <Route path="/admin/menus/new" page={MenuNewMenuPage} name="newMenu" />
+        <Route path="/admin/menus/{id:Int}/edit" page={MenuEditMenuPage} name="editMenu" />
+        <Route path="/admin/menus/{id:Int}" page={MenuMenuPage} name="menu" />
+        <Route path="/admin/menus" page={MenuMenusPage} name="menus" />
       </Set>
       <Set wrap={RestaurantsLayout}>
-        <Route path="/restaurants/new" page={RestaurantNewRestaurantPage} name="newRestaurant" />
-        <Route path="/restaurants/{id:Int}/edit" page={RestaurantEditRestaurantPage} name="editRestaurant" />
-        <Route path="/restaurants/{id:Int}" page={RestaurantRestaurantPage} name="restaurant" />
-        <Route path="/restaurants" page={RestaurantRestaurantsPage} name="restaurants" />
+        <Route path="/admin/restaurants/new" page={RestaurantNewRestaurantPage} name="newRestaurant" />
+        <Route path="/admin/restaurants/{id:Int}/edit" page={RestaurantEditRestaurantPage} name="editRestaurant" />
+        <Route path="/admin/restaurants/{id:Int}" page={RestaurantRestaurantPage} name="restaurant" />
+        <Route path="/admin/restaurants" page={RestaurantRestaurantsPage} name="restaurants" />
       </Set>
       <Set wrap={RestaurantTablesLayout}>
         <Route path="/admin/restaurant-tables/new" page={RestaurantTableNewRestaurantTablePage} name="newRestaurantTable" />
