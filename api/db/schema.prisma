@@ -1,6 +1,6 @@
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgres"
+  url      = "postgres://gosquady:gosquadypassword@localhost/gosquady"
 }
 
 generator client {
@@ -8,8 +8,14 @@ generator client {
   binaryTargets = "native"
 }
 
-model UserExample {
+model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
   name  String?
+}
+
+model RW_DataMigration {
+  version    String   @id
+  name       String
+  startedAt  DateTime
+  finishedAt DateTime
 }
