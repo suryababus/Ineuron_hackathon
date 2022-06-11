@@ -11,11 +11,76 @@ generator client {
 model User {
   id    Int     @id @default(autoincrement())
   name  String?
+  Items Items[]
 }
 
-model RW_DataMigration {
-  version    String   @id
-  name       String
-  startedAt  DateTime
-  finishedAt DateTime
+model Restaurant {
+  id             Int              @id @default(autoincrement())
+  name           String?
+  Items          Items[]
+  RestaurantMenu RestaurantMenu[]
+}
+
+model Tables {
+  id       Int @id @default(autoincrement())
+  capacity Int
+}
+
+model RestaurantTables {
+  id            Int @id @default(autoincrement())
+  table_id      Int
+  restaurant_id Int
+  status        Int
+}
+
+model Cuisine {
+  id   Int     @id @default(autoincrement())
+  type String?
+}
+
+model Category {
+  id   Int     @id @default(autoincrement())
+  type String?
+}
+
+model Menu {
+  id             Int              @id @default(autoincrement())
+  item_name      String?
+  category_id    Int
+  cuisine_id     Int
+  Items          Items[]
+  RestaurantMenu RestaurantMenu[]
+}
+
+model Order {
+  id            Int     @id @default(autoincrement())
+  status        String?
+  user_id       Int
+  restaurant_id Int
+}
+
+model Cart {
+  id     Int     @id @default(autoincrement())
+  status String?
+  Items  Items[]
+}
+
+model Items {
+  id            Int        @id @default(autoincrement())
+  item_id       Int
+  restaurant_id Int
+  user_id       Int
+  cart_id       Int
+  Menu          Menu       @relation(fields: [item_id], references: [id])
+  Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
+  User          User       @relation(fields: [user_id], references: [id])
+  Cart          Cart       @relation(fields: [cart_id], references: [id])
+}
+
+model RestaurantMenu {
+  id            Int        @id @default(autoincrement())
+  menu_id       Int
+  restaurant_id Int
+  Menu          Menu       @relation(fields: [menu_id], references: [id])
+  Restaurant    Restaurant @relation(fields: [restaurant_id], references: [id])
 }
