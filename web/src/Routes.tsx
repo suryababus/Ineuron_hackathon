@@ -8,6 +8,7 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Set, Router, Route, Private } from '@redwoodjs/router'
+import CategoriesLayout from 'src/layouts/CategoriesLayout'
 import MenusLayout from 'src/layouts/MenusLayout'
 import RestaurantsLayout from 'src/layouts/RestaurantsLayout'
 import RestaurantTablesLayout from 'src/layouts/RestaurantTablesLayout'
@@ -15,6 +16,12 @@ import RestaurantTablesLayout from 'src/layouts/RestaurantTablesLayout'
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={CategoriesLayout}>
+        <Route path="/admin/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
+        <Route path="/admin/categories/{id:Int}/edit" page={CategoryEditCategoryPage} name="editCategory" />
+        <Route path="/admin/categories/{id:Int}" page={CategoryCategoryPage} name="category" />
+        <Route path="/admin/categories" page={CategoryCategoriesPage} name="categories" />
+      </Set>
       <Route path="/" page={LoginPage} name="login" />
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
