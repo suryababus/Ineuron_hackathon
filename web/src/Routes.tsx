@@ -16,6 +16,7 @@ import RestaurantTablesLayout from 'src/layouts/RestaurantTablesLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/menu" page={MenuPage} name="menu" />
       <Set wrap={CategoriesLayout}>
         <Route path="/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
         <Route path="/categories/{id:Int}/edit" page={CategoryEditCategoryPage} name="editCategory" />
