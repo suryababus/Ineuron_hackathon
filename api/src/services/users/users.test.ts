@@ -24,14 +24,14 @@ describe('users', () => {
     const result = await createUser({
       input: {
         phoneNo: 'String',
-        email: 'String5575088',
+        email: 'String651427',
         hashedPassword: 'String',
         salt: 'String',
       },
     })
 
     expect(result.phoneNo).toEqual('String')
-    expect(result.email).toEqual('String5575088')
+    expect(result.email).toEqual('String651427')
     expect(result.hashedPassword).toEqual('String')
     expect(result.salt).toEqual('String')
   })

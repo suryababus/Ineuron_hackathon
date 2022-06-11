@@ -1,14 +1,18 @@
 import { Button } from '@mui/material'
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const CategoryPage = () => {
   const {logOut} = useAuth()
+  const logOutHandler = async () => {
+    await logOut()
+    navigate('/')
+  } 
   return (
     <>
       <MetaTags title="Category" description="Category page" />
-      <Button variant='contained' onClick={logOut}>Log Out</Button>
+      <Button variant='contained' onClick={logOutHandler}>Log Out</Button>
       <h1>CategoryPage</h1>
       <p>
         Find me in <code>./web/src/pages/CategoryPage/CategoryPage.tsx</code>

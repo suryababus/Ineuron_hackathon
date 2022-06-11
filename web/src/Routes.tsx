@@ -15,11 +15,12 @@ import RestaurantTablesLayout from 'src/layouts/RestaurantTablesLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/" page={LoginPage} name="login" />
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Private unauthenticated="login">
+      <Private unauthenticated="login" roles={'admin'}>
         <Set wrap={MenusLayout}>
           <Route path="/admin/menus/new" page={MenuNewMenuPage} name="newMenu" />
           <Route path="/admin/menus/{id:Int}/edit" page={MenuEditMenuPage} name="editMenu" />
@@ -40,8 +41,8 @@ const Routes = () => {
         </Set>
         <Route path="/admin/tables" page={AdminTablesPage} name="adminTables" />
         <Route path="/admin/home" page={AdminHomePage} name="adminHome" />
-        <Route path="/category" page={CategoryPage} name="home" />
       </Private>
+      <Route path="/category" page={CategoryPage} name="home" />
       <Route path="/admin/login" page={AdminAuthPage} name="adminAuth" />
       <Route notfound page={NotFoundPage} />
     </Router>

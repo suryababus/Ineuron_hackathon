@@ -21,7 +21,7 @@ import { db } from './db'
 export const getCurrentUser = async (session) => {
   return await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true },
+    select: { id: true, roles: true  },
   })
 }
 
@@ -53,8 +53,8 @@ export const hasRole = (roles: AllowedRoles): boolean => {
     return false
   }
 
-  // const currentUserRoles = context.currentUser?.roles
-
+  const currentUserRoles = context.currentUser?.roles
+  return currentUserRoles === roles
   // if (typeof roles === 'string') {
   //   if (typeof currentUserRoles === 'string') {
   //     // roles to check is a string, currentUser.roles is a string

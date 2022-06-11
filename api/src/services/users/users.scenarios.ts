@@ -5,7 +5,7 @@ export const standard = defineScenario<Prisma.UserCreateArgs>({
     one: {
       data: {
         phoneNo: 'String',
-        email: 'String6376551',
+        email: 'String9439613',
         hashedPassword: 'String',
         salt: 'String',
       },
@@ -13,7 +13,7 @@ export const standard = defineScenario<Prisma.UserCreateArgs>({
     two: {
       data: {
         phoneNo: 'String',
-        email: 'String1703085',
+        email: 'String9039630',
         hashedPassword: 'String',
         salt: 'String',
       },
