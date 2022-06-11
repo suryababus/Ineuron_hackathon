@@ -9,9 +9,14 @@ generator client {
 }
 
 model User {
-  id      Int     @id @default(autoincrement())
-  name    String?
-  phoneNo String
+  id                  Int       @id @default(autoincrement())
+  userName            String?
+  phoneNo             String
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
 }
 
 model Restaurant {
