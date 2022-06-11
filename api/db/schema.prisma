@@ -1,6 +1,7 @@
 datasource db {
-  provider = "postgres"
-  url      = "postgres://ueqtverrzurckf:f3e3b869e0b0d6bb0ac624a5e146661ec4aedd5c682f57dc09f43e7070d46724@ec2-54-227-248-71.compute-1.amazonaws.com:5432/d49g3c3ptb3ve8"
+  provider          = "postgresql"
+  url               = "postgres://ueqtverrzurckf:f3e3b869e0b0d6bb0ac624a5e146661ec4aedd5c682f57dc09f43e7070d46724@ec2-54-227-248-71.compute-1.amazonaws.com:5432/d49g3c3ptb3ve8?sslmode=require&pgbouncer=true"
+  shadowDatabaseUrl = "postgres://ueqtverrzurckf:f3e3b869e0b0d6bb0ac624a5e146661ec4aedd5c682f57dc09f43e7070d46724@ec2-54-227-248-71.compute-1.amazonaws.com:5432/d49g3c3ptb3ve8?sslmode=require&pgbouncer=true"
 }
 
 generator client {
