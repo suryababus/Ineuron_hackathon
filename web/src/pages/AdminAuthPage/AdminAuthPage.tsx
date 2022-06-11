@@ -1,20 +1,39 @@
+import { Button, Container, Input, TextField, Typography } from '@mui/material'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const AdminAuthPage = () => {
   return (
-    <>
-      <MetaTags title="AdminAuth" description="AdminAuth page" />
-
-      <h1>AdminAuthPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/AdminAuthPage/AdminAuthPage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>adminAuth</code>, link to me with `
-        <Link to={routes.adminAuth()}>AdminAuth</Link>`
-      </p>
-    </>
+    <Container maxWidth="sm">
+      <div
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100vh',
+        }}
+      >
+        <h1>Restaurant</h1>
+        <h2>Login</h2>
+        <Typography variant="body1" component="h2" style={{
+          marginBottom: 32,
+          textAlign: 'center'
+        }}>
+          Please enter your mobile number and verify OTP.
+        </Typography>
+        <TextField
+          variant="filled"
+          label="Mobile Number"
+          color="secondary"
+          focused
+          style={{
+            marginBottom: '32px',
+          }}
+        />
+        <Button variant="contained">Sent OTP</Button>
+      </div>
+    </Container>
   )
 }
 

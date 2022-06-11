@@ -11,6 +11,7 @@ generator client {
 model User {
   id    Int     @id @default(autoincrement())
   name  String?
+  phoneNo String
   Items Items[]
 }
 
@@ -21,16 +22,11 @@ model Restaurant {
   RestaurantMenu RestaurantMenu[]
 }
 
-model Tables {
-  id       Int @id @default(autoincrement())
-  capacity Int
-}
-
-model RestaurantTables {
+model RestaurantTable {
   id            Int @id @default(autoincrement())
-  table_id      Int
   restaurant_id Int
-  status        Int
+  table_no      String
+  available     Boolean
 }
 
 model Cuisine {
