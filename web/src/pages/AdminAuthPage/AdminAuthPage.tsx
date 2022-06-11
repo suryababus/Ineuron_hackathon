@@ -1,5 +1,5 @@
 import { Button, Container, Input, TextField, Typography } from '@mui/material'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const AdminAuthPage = () => {
@@ -16,10 +16,14 @@ const AdminAuthPage = () => {
       >
         <h1>Restaurant</h1>
         <h2>Login</h2>
-        <Typography variant="body1" component="h2" style={{
-          marginBottom: 32,
-          textAlign: 'center'
-        }}>
+        <Typography
+          variant="body1"
+          component="h2"
+          style={{
+            marginBottom: 32,
+            textAlign: 'center',
+          }}
+        >
           Please enter your mobile number and verify OTP.
         </Typography>
         <TextField
@@ -31,7 +35,9 @@ const AdminAuthPage = () => {
             marginBottom: '32px',
           }}
         />
-        <Button variant="contained">Sent OTP</Button>
+        <Button onClick={() => navigate('/admin/home')} variant="contained">
+          Sent OTP
+        </Button>
       </div>
     </Container>
   )

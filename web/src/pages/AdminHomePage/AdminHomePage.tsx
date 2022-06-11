@@ -20,7 +20,7 @@ const AdminHomePage = () => {
           {ImageButton(
             'https://www.restaurantfurnitureindia.com/img/og/restaurant-tables.jpg',
             'Tables',
-            () => navigate('/admin/login')
+            () => navigate('/admin/restaurant-tables')
           )}
           {ImageButton(
             'https://www.restaurantware.com/media/wysiwyg/To_Go_Presentation_-_Full_Width.png',
