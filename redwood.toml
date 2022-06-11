@@ -9,8 +9,7 @@
   title = "The Servitor"
   port = 8910
   apiUrl = "/netlify/functions" # you can customise graphql and dbauth urls individually too: see https://redwoodjs.com/docs/app-configuration-redwood-toml#api-paths
-  includeEnvironmentVariables = ['RWJS_API_DBAUTH_URL'] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
-  apiDbAuthUrl = "/netlify/functions/auth"
+  includeEnvironmentVariables = [] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
 [api]
   port = 8911
 [browser]
