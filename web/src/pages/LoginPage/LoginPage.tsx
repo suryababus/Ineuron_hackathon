@@ -1,4 +1,4 @@
-import { Link, navigate, routes } from '@redwoodjs/router'
+import { Link, navigate, routes, useParams } from '@redwoodjs/router'
 import { useRef } from 'react'
 import {
   Form,
@@ -12,14 +12,19 @@ import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useEffect } from 'react'
+import Loading from 'src/components/Loading/Loading'
 
 const LoginPage = () => {
-  const { isAuthenticated, logIn, hasRole,currentUser } = useAuth()
+  const { isAuthenticated, logIn, hasRole, currentUser, loading } = useAuth()
+  const { tableId } = useParams()
+  useEffect(() => {
+    localStorage.setItem('tableId', tableId)
+  }, [tableId])
 
   useEffect(() => {
     if (isAuthenticated) {
       console.log('currentUser', currentUser)
-      if(currentUser.roles === 'admin'){
+      if (currentUser.roles === 'admin') {
         navigate(routes.adminHome())
       } else {
         navigate(routes.home())
@@ -29,7 +34,7 @@ const LoginPage = () => {
 
   const usernameRef = useRef<HTMLInputElement>()
   useEffect(() => {
-    usernameRef.current.focus()
+    usernameRef?.current?.focus()
   }, [])
 
   const onSubmit = async (data) => {
@@ -43,6 +48,7 @@ const LoginPage = () => {
       toast.success('Welcome back!')
     }
   }
+  if (loading) return <Loading />
 
   return (
     <>
@@ -102,7 +108,10 @@ const LoginPage = () => {
                   />
 
                   <div className="rw-forgot-link">
-                    <Link to={routes.forgotPassword()} className="rw-forgot-link">
+                    <Link
+                      to={routes.forgotPassword()}
+                      className="rw-forgot-link"
+                    >
                       Forgot Password?
                     </Link>
                   </div>

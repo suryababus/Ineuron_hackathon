@@ -34,7 +34,8 @@ const UPDATE_MENU_MUTATION = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+import * as GifLoader from 'src/components/Loading/Loading'
+export const Loading = () => <GifLoader.default />
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error.message}</div>

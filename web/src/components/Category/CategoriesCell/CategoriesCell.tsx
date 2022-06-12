@@ -4,6 +4,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
 import Categories from 'src/components/Category/Categories'
+import * as GifLoader from 'src/components/Loading/Loading'
 
 export const QUERY = gql`
   query FindCategories {
@@ -15,7 +16,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <GifLoader.default />
 
 export const Empty = () => {
   return (

@@ -1,5 +1,6 @@
 import type { FindMenuById } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import * as GifLoader from 'src/components/Loading/Loading'
 
 import Menu from 'src/components/Menu/Menu'
 
@@ -17,7 +18,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <GifLoader.default />
 
 export const Empty = () => <div>Menu not found</div>
 

@@ -3,6 +3,9 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import Category from 'src/components/Category/Category'
 
+import * as GifLoader from 'src/components/Loading/Loading'
+export const Loading = () => <GifLoader.default />
+
 export const QUERY = gql`
   query FindCategoryById($id: Int!) {
     category: category(id: $id) {
@@ -13,7 +16,6 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Category not found</div>
 

@@ -1,8 +1,10 @@
 import { Loading, Empty, Failure, Success } from './CategoriesCardsCell'
 import { standard } from './CategoriesCardsCell.mock'
+import * as GifLoader from 'src/components/Loading/Loading'
+
 
 export const loading = () => {
-  return Loading ? <Loading /> : null
+  return Loading ? <GifLoader.default /> : null
 }
 
 export const empty = () => {

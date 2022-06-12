@@ -3,6 +3,7 @@ import { CellSuccessProps, CellFailureProps, useQuery } from '@redwoodjs/web'
 import { Container } from '@mui/system'
 import { Typography } from '@mui/material'
 import { useState } from 'react'
+import * as GifLoader from 'src/components/Loading/Loading'
 import { navigate } from '@redwoodjs/router'
 
 export const QUERY = gql`
@@ -15,7 +16,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <GifLoader.default />
 
 export const Empty = () => <div>Empty</div>
 

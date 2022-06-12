@@ -1,8 +1,8 @@
 import { Loading, Empty, Failure, Success } from './MenuCardsCell'
 import { standard } from './MenuCardsCell.mock'
-
+import * as GifLoader from 'src/components/Loading/Loading'
 export const loading = () => {
-  return Loading ? <Loading /> : null
+  return Loading ? <GifLoader.default />: null
 }
 
 export const empty = () => {

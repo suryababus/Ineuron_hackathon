@@ -15,8 +15,8 @@ export const QUERY = gql`
     }
   }
 `
-
-export const Loading = () => <div>Loading...</div>
+import * as GifLoader from 'src/components/Loading/Loading'
+export const Loading = () => <GifLoader.default />
 
 export const Empty = () => {
   return (

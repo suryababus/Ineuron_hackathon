@@ -5,7 +5,6 @@ import MenuCard from './MenuCard'
 import { useContext } from 'react'
 import { CartContext } from 'src/state/cartState'
 import { navigate } from '@redwoodjs/router'
-import Loading from '../Loading/Loading'
 
 export const QUERY = gql`
   query FindMenus {
@@ -20,8 +19,8 @@ export const QUERY = gql`
     }
   }
 `
-
-// export const Loading = () => <div>Loading...</div>
+import * as GifLoader from 'src/components/Loading/Loading'
+export const Loading = () => <GifLoader.default />
 
 export const Empty = () => <div>Empty</div>
 
