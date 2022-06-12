@@ -16,6 +16,14 @@ const CREATE_ORDER_MUTATION = gql`
     }
   }
 `
+const CREATE_ORDER_ITEMS_MUTATION = gql`
+  mutation insertOrderItems($objects: [CreateOrderInput]!) {
+    createOrder(objects: $objects) {
+      id
+    }
+  }
+`
+
 
 
 const OrderSummaryPage = () => {
@@ -31,18 +39,21 @@ const OrderSummaryPage = () => {
     },
   })
 
-  const createFoodOrder = () => {
-    createOrder({ variables: { input: {
-      status: 'processing',
-      user_id: currentUser.id,
-      restaurant_id: 1
-    } } })
-  }
+  
 
   let total = 0
   cart.cartItems.forEach((item) => {
     total = total + item.count * item.menu.price
   })
+  const createFoodOrder = () => {
+    createOrder({ variables: { input: {
+      status: 'processing',
+      user_id: currentUser.id,
+      restaurant_id: 1,
+      total_price: total,
+      table_id: localStorage.getItem('table_id')
+    } } })
+  }
   return (
     <Container maxWidth="sm">
       <div

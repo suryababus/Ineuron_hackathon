@@ -18,6 +18,13 @@ export const createOrderItem: MutationResolvers['createOrderItem'] = ({
     data: input,
   })
 }
+export const insertOrderItems: MutationResolvers['insertOrderItems'] = ({
+  objects,
+}) => {
+  return db.orderItem.createMany({
+    data: objects,
+  })
+}
 
 export const updateOrderItem: MutationResolvers['updateOrderItem'] = ({
   id,

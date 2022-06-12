@@ -1,7 +1,6 @@
 import type { FindOrders } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-
 import { Link, routes } from '@redwoodjs/router'
 
 import Orders from 'src/components/Order/Orders'
@@ -13,12 +12,13 @@ export const QUERY = gql`
       status
       user_id
       restaurant_id
+      total_price
+      table_id
     }
   }
 `
 
-import * as GifLoader from 'src/components/Loading/Loading'
-export const Loading = () => <GifLoader.default />
+export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (

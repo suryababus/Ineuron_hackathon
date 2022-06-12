@@ -23,6 +23,12 @@ const OrderForm = (props) => {
     
     
   
+    
+    
+  
+    
+    
+  
     props.onSave(data, props?.order?.id)
   }
 
@@ -91,6 +97,43 @@ const OrderForm = (props) => {
         
 
         <FieldError name="restaurant_id" className="rw-field-error" />
+
+        <Label
+          name="total_price"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Total price
+        </Label>
+        
+          <TextField
+            name="total_price"
+            defaultValue={props.order?.total_price}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{ valueAsNumber: true }}
+          />
+        
+
+        <FieldError name="total_price" className="rw-field-error" />
+
+        <Label
+          name="table_id"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Table id
+        </Label>
+        
+          <NumberField
+            name="table_id"
+            defaultValue={props.order?.table_id}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+          />
+        
+
+        <FieldError name="table_id" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit

@@ -4,6 +4,9 @@ export const schema = gql`
     status: String
     user_id: Int!
     restaurant_id: Int!
+    total_price: Float
+    table_id: Int
+    orderItem: [OrderItem]!
   }
 
   type Query {
@@ -15,12 +18,16 @@ export const schema = gql`
     status: String
     user_id: Int!
     restaurant_id: Int!
+    total_price: Float
+    table_id: Int
   }
 
   input UpdateOrderInput {
     status: String
     user_id: Int
     restaurant_id: Int
+    total_price: Float
+    table_id: Int
   }
 
   type Mutation {

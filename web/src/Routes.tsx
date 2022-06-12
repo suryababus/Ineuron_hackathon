@@ -19,6 +19,12 @@ import { TopBar } from './components/TobBar/TobBar'
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={OrdersLayout}>
+        <Route path="/orders/new" page={OrderNewOrderPage} name="newOrder" />
+        <Route path="/orders/{id:Int}/edit" page={OrderEditOrderPage} name="editOrder" />
+        <Route path="/orders/{id:Int}" page={OrderOrderPage} name="order" />
+        <Route path="/orders" page={OrderOrdersPage} name="orders" />
+      </Set>
       <Set whileLoadingAuth={() => <Loading />} prerender={false}>
         <Route path="/" page={LoginPage} name="login" />
         <Route path="/login" page={LoginPage} name="login" />

@@ -1,5 +1,9 @@
 import { db } from 'src/lib/db'
-import type { QueryResolvers, MutationResolvers } from 'types/graphql'
+import type {
+  QueryResolvers,
+  MutationResolvers,
+  OrderResolvers,
+} from 'types/graphql'
 
 export const orders: QueryResolvers['orders'] = () => {
   return db.order.findMany()
@@ -31,4 +35,9 @@ export const deleteOrder: MutationResolvers['deleteOrder'] = ({ id }) => {
   return db.order.delete({
     where: { id },
   })
+}
+
+export const Order: OrderResolvers = {
+  orderItem: (_obj, { root }) =>
+    db.order.findUnique({ where: { id: root.id } }).orderItem(),
 }

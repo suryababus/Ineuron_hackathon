@@ -67,6 +67,8 @@ CREATE TABLE "Order" (
     "status" TEXT,
     "user_id" INTEGER NOT NULL,
     "restaurant_id" INTEGER NOT NULL,
+    "total_price" DOUBLE PRECISION,
+    "table_id" INTEGER,
 
     CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );

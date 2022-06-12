@@ -82,6 +82,12 @@ const Order = ({ order }) => {
             </tr><tr>
               <th>Restaurant id</th>
               <td>{order.restaurant_id}</td>
+            </tr><tr>
+              <th>Total price</th>
+              <td>{order.total_price}</td>
+            </tr><tr>
+              <th>Table id</th>
+              <td>{order.table_id}</td>
             </tr>
           </tbody>
         </table>

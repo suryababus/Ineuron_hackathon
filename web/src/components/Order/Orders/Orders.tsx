@@ -83,6 +83,8 @@ const OrdersList = ({ orders }) => {
             <th>Status</th>
             <th>User id</th>
             <th>Restaurant id</th>
+            <th>Total price</th>
+            <th>Table id</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -93,6 +95,8 @@ const OrdersList = ({ orders }) => {
               <td>{truncate(order.status)}</td>
               <td>{truncate(order.user_id)}</td>
               <td>{truncate(order.restaurant_id)}</td>
+              <td>{truncate(order.total_price)}</td>
+              <td>{truncate(order.table_id)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

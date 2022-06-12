@@ -34,5 +34,6 @@ export const schema = gql`
     updateOrderItem(id: Int!, input: UpdateOrderItemInput!): OrderItem!
       @requireAuth
     deleteOrderItem(id: Int!): OrderItem! @requireAuth
+    insertOrderItems(objects: [CreateOrderItemInput]): [OrderItem] @requireAuth
   }
 `

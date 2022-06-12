@@ -22,21 +22,21 @@ describe('orders', () => {
 
   scenario('creates a order', async () => {
     const result = await createOrder({
-      input: { user_id: 3458635, restaurant_id: 7519683 },
+      input: { user_id: 3805206, restaurant_id: 6592612 },
     })
 
-    expect(result.user_id).toEqual(3458635)
-    expect(result.restaurant_id).toEqual(7519683)
+    expect(result.user_id).toEqual(3805206)
+    expect(result.restaurant_id).toEqual(6592612)
   })
 
   scenario('updates a order', async (scenario: StandardScenario) => {
     const original = await order({ id: scenario.order.one.id })
     const result = await updateOrder({
       id: original.id,
-      input: { user_id: 5660502 },
+      input: { user_id: 1076067 },
     })
 
-    expect(result.user_id).toEqual(5660502)
+    expect(result.user_id).toEqual(1076067)
   })
 
   scenario('deletes a order', async (scenario: StandardScenario) => {

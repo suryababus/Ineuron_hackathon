@@ -14,6 +14,8 @@ export const QUERY = gql`
       status
       user_id
       restaurant_id
+      total_price
+      table_id
     }
   }
 `
@@ -24,6 +26,8 @@ const UPDATE_ORDER_MUTATION = gql`
       status
       user_id
       restaurant_id
+      total_price
+      table_id
     }
   }
 `

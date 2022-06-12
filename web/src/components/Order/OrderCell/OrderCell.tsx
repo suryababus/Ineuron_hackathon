@@ -10,6 +10,8 @@ export const QUERY = gql`
       status
       user_id
       restaurant_id
+      total_price
+      table_id
     }
   }
 `

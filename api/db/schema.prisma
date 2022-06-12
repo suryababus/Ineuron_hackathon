@@ -61,15 +61,17 @@ model Order {
   status        String?
   user_id       Int
   restaurant_id Int
+  total_price   Float?
+  table_id      Int?
   orderItem     OrderItem[]
 }
 
 model OrderItem {
-  id            Int     @id @default(autoincrement())
-  item_name     String?
-  category_id   Int
-  image_url     String?
-  price         Float
-  order_id      Int
-  order         Order   @relation(fields: [order_id], references: [id])
+  id          Int     @id @default(autoincrement())
+  item_name   String?
+  category_id Int
+  image_url   String?
+  price       Float
+  order_id    Int
+  order       Order   @relation(fields: [order_id], references: [id])
 }
