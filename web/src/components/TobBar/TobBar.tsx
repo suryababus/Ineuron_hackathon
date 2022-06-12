@@ -16,9 +16,10 @@ export const TopBar = ({ children }: Props) => {
         display: 'flex',
         marginBottom: '8px'
     }}>
-        <Typography variant="h5" fontFamily={'fantasy'}>
+        {/* <Typography variant="h5" fontFamily={'fantasy'}>
             Food-Dine
-        </Typography>
+        </Typography> */}
+        <img src='/Logo.png' style={{ width: '100px'}}/>
         <div style={{
             display: 'flex',
             flex: 1
