@@ -10,25 +10,19 @@ import { toast } from '@redwoodjs/web/dist/toast'
 import { useAuth } from '@redwoodjs/auth'
 
 const CREATE_ORDER_MUTATION = gql`
-  mutation CreateOrderMutation($input: CreateOrderInput!) {
+  mutation CreateOrderMutation($input: CreateOrderInput!, $tableId: Int!) {
     createOrder(input: $input) {
       id
     }
-  }
-`
-const CREATE_ORDER_ITEMS_MUTATION = gql`
-  mutation insertOrderItems($objects: [CreateOrderInput]!) {
-    createOrder(objects: $objects) {
+    updateRestaurantTable(id: $tableId, input: { available: false }) {
       id
     }
   }
 `
 
-
-
 const OrderSummaryPage = () => {
   const cart = useContext(CartContext)
-  const {currentUser} = useAuth()
+  const { currentUser } = useAuth()
   const [createOrder, { loading, error }] = useMutation(CREATE_ORDER_MUTATION, {
     onCompleted: () => {
       toast.success('Order created')
@@ -39,20 +33,28 @@ const OrderSummaryPage = () => {
     },
   })
 
-  
-
   let total = 0
   cart.cartItems.forEach((item) => {
     total = total + item.count * item.menu.price
   })
   const createFoodOrder = () => {
-    createOrder({ variables: { input: {
-      status: 'processing',
-      user_id: currentUser.id,
-      restaurant_id: 1,
-      total_price: total,
-      table_id: localStorage.getItem('table_id')
-    } } })
+    let tableId =  localStorage.getItem('tableId')
+    if(!tableId){
+      toast.error('Scan the table first')
+      return 
+    }
+    createOrder({
+      variables: {
+        input: {
+          status: 'processing',
+          user_id: currentUser.id,
+          restaurant_id: 1,
+          total_price: total,
+          table_id: parseInt(tableId)
+        },
+        tableId: parseInt(tableId)
+      },
+    })
   }
   return (
     <Container maxWidth="sm">
@@ -86,7 +88,7 @@ const OrderSummaryPage = () => {
           style={{
             margin: 'auto',
             maxWidth: 350,
-            display: 'flex'
+            display: 'flex',
           }}
           onClick={createFoodOrder}
         >
