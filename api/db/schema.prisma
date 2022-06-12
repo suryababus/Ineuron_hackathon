@@ -57,8 +57,19 @@ model Menu {
 }
 
 model Order {
-  id            Int     @id @default(autoincrement())
+  id            Int         @id @default(autoincrement())
   status        String?
   user_id       Int
   restaurant_id Int
+  orderItem     OrderItem[]
+}
+
+model OrderItem {
+  id            Int     @id @default(autoincrement())
+  item_name     String?
+  category_id   Int
+  image_url     String?
+  price         Float
+  order_id      Int
+  order         Order   @relation(fields: [order_id], references: [id])
 }

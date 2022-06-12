@@ -71,8 +71,23 @@ CREATE TABLE "Order" (
     CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "OrderItem" (
+    "id" SERIAL NOT NULL,
+    "item_name" TEXT,
+    "category_id" INTEGER NOT NULL,
+    "image_url" TEXT,
+    "price" DOUBLE PRECISION NOT NULL,
+    "order_id" INTEGER NOT NULL,
+
+    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- AddForeignKey
 ALTER TABLE "Menu" ADD CONSTRAINT "Menu_restaurant_id_fkey" FOREIGN KEY ("restaurant_id") REFERENCES "Restaurant"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "Order"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
