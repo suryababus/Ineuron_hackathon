@@ -96,7 +96,8 @@ const RestaurantTablesList = ({ restaurantTables }) => {
   }
 
   const generateQR = async (id) => {
-   return QRCode.toDataURL('http://localhost:8910/login?tableId='+id)
+  //  return QRCode.toDataURL('http://localhost:8910/login?tableId='+id)
+   return QRCode.toDataURL('https://main--theservitor.netlify.app/login?tableId='+id)
       
   }
   return (
