@@ -7,14 +7,14 @@ const AdminHomePage = () => {
     <>
       <MetaTags title="AdminHome" description="AdminHome page" />
 
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <div
           style={{
             justifyContent: 'center',
             alignItems: 'center',
             display: 'flex',
-            flexDirection: 'column',
-            height: '100vh',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
           }}
         >
           {ImageButton(
@@ -23,9 +23,14 @@ const AdminHomePage = () => {
             () => navigate('/admin/restaurant-tables')
           )}
           {ImageButton(
-            'https://www.restaurantware.com/media/wysiwyg/To_Go_Presentation_-_Full_Width.png',
-            'Orders',
-            () => navigate('/admin/login')
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScgWj7Er6M0eIWKtExTRC1mbbYsxDQnwo9Xg&usqp=CAU',
+            'Menus',
+            () => navigate('/admin/menus')
+          )}
+          {ImageButton(
+            'https://www.homestratosphere.com/wp-content/uploads/2020/05/food-variety-may172019-min.jpg',
+            'Categories',
+            () => navigate('/admin/categories')
           )}
         </div>
       </Container>
@@ -42,6 +47,7 @@ function ImageButton(url: string, label: string, onClick: () => void) {
         justifyContent: 'center',
         backgroundColor: '#2E294E',
         margin: '8px',
+        boxShadow: `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`
       }}
       onClick={onClick}
     >

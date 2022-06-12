@@ -53,7 +53,7 @@ function CategoryCard(item): JSX.Element {
       onMouseLeave={() => setHover(false)}
       onClick={() => navigate(`/${item.id}/menu`)}
     >
-      <img src={item.image_url} style={{ width: '300px' }} />
+      <img src={item.image_url} style={{ width: '300px', height: '225px' }} />
       <Typography
         variant="h5"
         style={{

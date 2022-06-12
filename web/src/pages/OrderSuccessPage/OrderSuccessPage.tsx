@@ -17,7 +17,7 @@ const OrderSuccessPage = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          height: '80vh',
         }}
       >
         <Typography variant="h4">OrderSuccess</Typography>

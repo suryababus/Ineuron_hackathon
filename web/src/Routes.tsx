@@ -13,6 +13,7 @@ import MenusLayout from 'src/layouts/MenusLayout'
 import RestaurantsLayout from 'src/layouts/RestaurantsLayout'
 import RestaurantTablesLayout from 'src/layouts/RestaurantTablesLayout'
 import Loading from './components/Loading/Loading'
+import { TopBar } from './components/TobBar/TobBar'
 
 const Routes = () => {
   return (
@@ -24,7 +25,7 @@ const Routes = () => {
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
-        <Private unauthenticated="login">
+        <Private unauthenticated="login" wrap={TopBar}>
           <Route path="/order-success" page={OrderSuccessPage} name="orderSuccess" />
           <Route path="/order-summary" page={OrderSummaryPage} name="orderSummary" />
           <Route path="/{id:Int}/menu" page={MenuPage} name="menu" />
@@ -38,12 +39,6 @@ const Routes = () => {
               <Route path="/admin/menus/{id:Int}/edit" page={MenuEditMenuPage} name="editMenu" />
               <Route path="/admin/menus/{id:Int}" page={MenuMenuPage} name="adminMenu" />
               <Route path="/admin/menus" page={MenuMenusPage} name="adminMenus" />
-            </Set>
-            <Set wrap={CategoriesLayout}>
-              <Route path="/admin/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
-              <Route path="/admin/categories/{id:Int}/edit" page={CategoryEditCategoryPage} name="editCategory" />
-              <Route path="/admin/categories/{id:Int}" page={CategoryCategoryPage} name="category" />
-              <Route path="/admin/categories" page={CategoryCategoriesPage} name="categories" />
             </Set>
             <Set wrap={CategoriesLayout}>
               <Route path="/admin/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
