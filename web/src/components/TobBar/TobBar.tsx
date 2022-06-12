@@ -14,6 +14,7 @@ export const TopBar = ({ children }: Props) => {
         boxShadow: `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
         padding: '16px',
         display: 'flex',
+        marginBottom: '8px'
     }}>
         <Typography variant="h5" fontFamily={'fantasy'}>
             Food-Dine

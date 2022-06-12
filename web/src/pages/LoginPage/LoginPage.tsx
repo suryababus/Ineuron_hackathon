@@ -22,7 +22,7 @@ const LoginPage = () => {
   }, [tableId])
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && !loading) {
       console.log('currentUser', currentUser)
       if (currentUser.roles === 'admin') {
         navigate(routes.adminHome())

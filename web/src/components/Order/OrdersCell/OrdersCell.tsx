@@ -1,0 +1,43 @@
+import type { FindOrders } from 'types/graphql'
+import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+
+
+import { Link, routes } from '@redwoodjs/router'
+
+import Orders from 'src/components/Order/Orders'
+
+export const QUERY = gql`
+  query FindOrders {
+    orders {
+      id
+      status
+      user_id
+      restaurant_id
+    }
+  }
+`
+
+import * as GifLoader from 'src/components/Loading/Loading'
+export const Loading = () => <GifLoader.default />
+
+export const Empty = () => {
+  return (
+    <div className="rw-text-center">
+      {'No orders yet. '}
+      <Link
+        to={routes.newOrder()}
+        className="rw-link"
+      >
+        {'Create one?'}
+      </Link>
+    </div>
+  )
+}
+
+export const Failure = ({ error }: CellFailureProps) => (
+  <div className="rw-cell-error">{error.message}</div>
+)
+
+export const Success = ({ orders }: CellSuccessProps<FindOrders>) => {
+  return <Orders orders={orders} />
+}

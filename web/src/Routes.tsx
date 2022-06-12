@@ -8,6 +8,7 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Set, Router, Route, Private } from '@redwoodjs/router'
+import OrdersLayout from 'src/layouts/OrdersLayout'
 import CategoriesLayout from 'src/layouts/CategoriesLayout'
 import MenusLayout from 'src/layouts/MenusLayout'
 import RestaurantsLayout from 'src/layouts/RestaurantsLayout'
@@ -34,6 +35,12 @@ const Routes = () => {
           <Route notfound page={NotFoundPage} />
 
           <Private unauthenticated="login" roles={'admin'}>
+            <Set wrap={OrdersLayout}>
+              <Route path="/admin/orders/new" page={OrderNewOrderPage} name="newOrder" />
+              <Route path="/admin/orders/{id:Int}/edit" page={OrderEditOrderPage} name="editOrder" />
+              <Route path="/admin/orders/{id:Int}" page={OrderOrderPage} name="order" />
+              <Route path="/admin/orders" page={OrderOrdersPage} name="orders" />
+            </Set>
             <Set wrap={MenusLayout}>
               <Route path="/admin/menus/new" page={MenuNewMenuPage} name="newMenu" />
               <Route path="/admin/menus/{id:Int}/edit" page={MenuEditMenuPage} name="editMenu" />

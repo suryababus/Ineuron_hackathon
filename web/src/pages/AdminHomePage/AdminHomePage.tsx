@@ -32,6 +32,11 @@ const AdminHomePage = () => {
             'Categories',
             () => navigate('/admin/categories')
           )}
+          {ImageButton(
+            'https://cdnimg.webstaurantstore.com/uploads/seo_category/2020/11/takeout-containers-and-togo-boxes.jpg',
+            'Orders',
+            () => navigate('/admin/orders')
+          )}
         </div>
       </Container>
     </>

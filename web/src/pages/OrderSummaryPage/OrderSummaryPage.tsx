@@ -1,14 +1,43 @@
 import { Button, CardActions, IconButton, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import { Link, navigate, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import { MetaTags, useMutation } from '@redwoodjs/web'
 import { useContext } from 'react'
 import { CartContext, CartItem } from 'src/state/cartState'
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined'
+import { toast } from '@redwoodjs/web/dist/toast'
+import { useAuth } from '@redwoodjs/auth'
+
+const CREATE_ORDER_MUTATION = gql`
+  mutation CreateOrderMutation($input: CreateOrderInput!) {
+    createOrder(input: $input) {
+      id
+    }
+  }
+`
+
 
 const OrderSummaryPage = () => {
   const cart = useContext(CartContext)
+  const {currentUser} = useAuth()
+  const [createOrder, { loading, error }] = useMutation(CREATE_ORDER_MUTATION, {
+    onCompleted: () => {
+      toast.success('Order created')
+      navigate('/order-success')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+
+  const createFoodOrder = () => {
+    createOrder({ variables: { input: {
+      status: 'processing',
+      user_id: currentUser.id,
+      restaurant_id: 1
+    } } })
+  }
 
   let total = 0
   cart.cartItems.forEach((item) => {
@@ -48,7 +77,7 @@ const OrderSummaryPage = () => {
             maxWidth: 350,
             display: 'flex'
           }}
-          onClick={() => navigate('/order-success')}
+          onClick={createFoodOrder}
         >
           Place Order
         </Button>
