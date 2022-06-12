@@ -10945,6 +10945,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dijkstrajs@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "dijkstrajs@npm:1.0.2"
+  checksum: 323e10c46a163a2b8ff6a357f967cff4392981d351de9077d131469d02edfe9cd38ce079bbb58c8cf99e6925a75a3b22269d1886381a8eab1daf0d2e39191728
+  languageName: node
+  linkType: hard
+
 "dir-glob@npm:^2.2.2":
   version: 2.2.2
   resolution: "dir-glob@npm:2.2.2"
@@ -11314,6 +11321,13 @@ __metadata:
   version: 3.0.0
   resolution: "emojis-list@npm:3.0.0"
   checksum: 7dc4394b7b910444910ad64b812392159a21e1a7ecc637c775a440227dcb4f80eff7fe61f4453a7d7603fa23d23d30cc93fe9e4b5ed985b88d6441cd4a35117b
+  languageName: node
+  linkType: hard
+
+"encode-utf8@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "encode-utf8@npm:1.0.3"
+  checksum: 6b3458b73e868113d31099d7508514a5c627d8e16d1e0542d1b4e3652299b8f1f590c468e2b9dcdf1b4021ee961f31839d0be9d70a7f2a8a043c63b63c9b3a88
   languageName: node
   linkType: hard
 
@@ -19236,6 +19250,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pngjs@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "pngjs@npm:5.0.0"
+  checksum: c074d8a94fb75e2defa8021e85356bf7849688af7d8ce9995b7394d57cd1a777b272cfb7c4bce08b8d10e71e708e7717c81fd553a413f21840c548ec9d4893c6
+  languageName: node
+  linkType: hard
+
 "pnp-webpack-plugin@npm:1.6.4":
   version: 1.6.4
   resolution: "pnp-webpack-plugin@npm:1.6.4"
@@ -20098,6 +20119,20 @@ __metadata:
   dependencies:
     escape-goat: ^2.0.0
   checksum: d2346324780ebae4be847cad052b830e004d816851dd4750fc73faa6cd360f443e358f6b1c83641fd4c904c6055dcb545807f55259a20a52ad86d9477746c724
+  languageName: node
+  linkType: hard
+
+"qrcode@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "qrcode@npm:1.5.0"
+  dependencies:
+    dijkstrajs: ^1.0.1
+    encode-utf8: ^1.0.3
+    pngjs: ^5.0.0
+    yargs: ^15.3.1
+  bin:
+    qrcode: bin/qrcode
+  checksum: bd3c74fa00d729a32a5b161ef51dafacf1973a2936a234b1b780a53639d0290397ca36fa01ffd10f55b448e7baf9320bc3c47b08090d0aac0fc2dec7f094f4a9
   languageName: node
   linkType: hard
 
@@ -21128,6 +21163,7 @@ __metadata:
     "@mui/icons-material": ^5.8.3
     "@mui/material": ^5.8.3
     "@redwoodjs/core": 1.5.1
+    qrcode: ^1.5.0
   languageName: unknown
   linkType: soft
 

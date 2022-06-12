@@ -2,9 +2,13 @@ import humanize from 'humanize-string'
 
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 
 import { QUERY } from 'src/components/RestaurantTable/RestaurantTablesCell'
+
+import QRCode from 'qrcode'
+import { Button } from '@mui/material'
+import { useEffect, useRef, useState } from 'react'
 
 const DELETE_RESTAURANT_TABLE_MUTATION = gql`
   mutation DeleteRestaurantTableMutation($id: Int!) {
@@ -54,26 +58,47 @@ const checkboxInputTag = (checked) => {
 }
 
 const RestaurantTablesList = ({ restaurantTables }) => {
-  const [deleteRestaurantTable] = useMutation(DELETE_RESTAURANT_TABLE_MUTATION, {
-    onCompleted: () => {
-      toast.success('RestaurantTable deleted')
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-    // This refetches the query on the list page. Read more about other ways to
-    // update the cache over here:
-    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
-    refetchQueries: [{ query: QUERY }],
-    awaitRefetchQueries: true,
-  })
+  const [deleteRestaurantTable] = useMutation(
+    DELETE_RESTAURANT_TABLE_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success('RestaurantTable deleted')
+      },
+      onError: (error) => {
+        toast.error(error.message)
+      },
+      // This refetches the query on the list page. Read more about other ways to
+      // update the cache over here:
+      // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+      refetchQueries: [{ query: QUERY }],
+      awaitRefetchQueries: true,
+    }
+  )
+
+
+
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete restaurantTable ' + id + '?')) {
+    if (
+      confirm('Are you sure you want to delete restaurantTable ' + id + '?')
+    ) {
       deleteRestaurantTable({ variables: { id } })
     }
   }
+  async function downloadQr(id) {
+    var link = document.createElement("a");
+    link.download = 'tableNo-'+id+'.jpg';
+    link.href = await generateQR(id);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    // delete link;
+  }
 
+  const generateQR = async (id) => {
+   return QRCode.toDataURL('http://localhost:8910/login?tableId='+id)
+      
+  }
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
@@ -95,9 +120,14 @@ const RestaurantTablesList = ({ restaurantTables }) => {
               <td>{checkboxInputTag(restaurantTable.available)}</td>
               <td>
                 <nav className="rw-table-actions">
+                  <Button onClick={() => downloadQr(restaurantTable.id)}>
+                    Download QR
+                  </Button>
                   <Link
                     to={routes.restaurantTable({ id: restaurantTable.id })}
-                    title={'Show restaurantTable ' + restaurantTable.id + ' detail'}
+                    title={
+                      'Show restaurantTable ' + restaurantTable.id + ' detail'
+                    }
                     className="rw-button rw-button-small"
                   >
                     Show
